@@ -21,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->group(base_path('routes/api/v1/v1.php'));
         },
     )
+    ->withMiddleware(function (Middleware $middleware): void {
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
