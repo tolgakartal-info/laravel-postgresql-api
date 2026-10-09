@@ -26,6 +26,9 @@ class CompanyController extends Controller
         return CompanyResource::collection($companies);
     } 
 
+    /**
+     * Create a resource.
+     */
     public function store(StoreCompanyRequest $request): JsonResponse
     {
         // İstek zaten StoreCompanyRequest ile valide edildiği için güvenle kullanabiliriz
