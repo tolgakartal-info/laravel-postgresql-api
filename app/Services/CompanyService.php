@@ -4,10 +4,21 @@ namespace App\Services;
 
 use App\Models\Company;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 use Exception;
 
 class CompanyService
 {
+    /**
+     * Tüm şirketleri liste halinde getirir.
+     * İsteğe bağlı olarak sayfalama (pagination) da eklenebilir.
+     */
+    public function getAllCompanies(): Collection
+    {
+        // Tüm şirketleri veritabanından çeker
+        return Company::latest()->get();
+    }
+
     /**
      * Yeni bir şirket oluşturur.
      */
