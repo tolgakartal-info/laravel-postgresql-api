@@ -10,6 +10,16 @@ return Application::configure(basePath: dirname(__DIR__))
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
+        using: function () { 
+            Route::middleware('api')
+                ->prefix('api')
+                ->group(base_path('routes/api.php'));
+
+            // Sizin V1 versiyonlama dosyanız:
+            Route::middleware('api')
+                ->prefix('api/v1') // URL'ye otomatik /api/v1 ön eki ekler
+                ->group(base_path('routes/api/v1/v1.php'));
+        },
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
